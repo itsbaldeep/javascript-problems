@@ -12,6 +12,6 @@ f[1] = 1;
 for (i = 2; i <= 15; i++) f[i] = f[i - 1] + f[i - 2];
 
 // Now simply log the array as comma and space seperated numbers
-console.log(f.join(", "));
+console.log(f.join());
 
 // It logs the fibonacci series upto 15
