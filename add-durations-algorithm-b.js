@@ -6,17 +6,17 @@
  * Return Result
  */
 
-const addTime = durations => {
+const addTime = durs => {
+
 	// Convert HH:MM:SS to total seconds
-	let sum = 0;
-	for (let dur of durations) sum += dur.split(":").reduce((a, t) => 60 * a + +t);
+	const sum = durs.reduce((a, dur) => a + dur.split(":").reduce((a, t) => 60 * a + +t), 0);
 
 	// Convert total seconds to HH:MM:SS
-	let time = [Math.floor(sum / 3600), Math.floor(sum / 60) % 60, sum % 60];
-	for (let e of time) time[time.indexOf(e)] = ("00" + e).slice(-2);
+	const time = [Math.floor(sum / 3600), Math.floor(sum / 60) % 60, sum % 60];
 
 	// Return HH:MM:SS
-	return time.join(":");
+	return time.map(t => ("00" + t).slice(-2)).join(":");
+
 };
 
 // Make an array of durations
